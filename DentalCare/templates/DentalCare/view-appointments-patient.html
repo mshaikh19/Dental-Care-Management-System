@@ -1,0 +1,111 @@
+{% extends 'DentalCare/patient_base.html' %}
+{% block content %}
+
+<head>
+  
+  <style>
+    .main-panel{
+        margin-top: -30px;
+    }
+    .my-5{
+        padding: 30px;
+    }
+    .card-columns {
+        column-count: 2;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card .btn {
+        margin-top: 0.5rem;
+    }
+    body{
+      overflow-y:scroll !important;
+    }
+  </style>
+</head>
+<div class="main-panel col-12 ml-4">
+    <div class="content-wrapper col-10">
+      <div class="row col-12">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="my-5 bg-light w-100" style="border-radius: 10px;">
+                <h2 class="text-center">Your Appointments</h2>
+
+                <div class="mt-4">
+                    <h3>Upcoming Appointments</h3>
+                    {% if upcoming_appointments %}
+                        <div class="card-columns">
+                            {% for appointment in upcoming_appointments %}
+                                <div class="card border-primary mb-3">
+                                    <div class="card-header">Appointment on {{ appointment.AppointmentDate }}</div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">Time: {{ appointment.TimeSlot }}</h5>
+                                        <p class="card-text">Doctor: Dr. {{ appointment.doctor.get_name }}</p>
+                                        <p class="card-text">Symptoms: {{ appointment.symptoms }}</p>
+                                        <form method="post" action="{% url 'cancel_appointment' appointment.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No upcoming appointments.</p>
+                    {% endif %}
+                </div>
+
+                <div class="mt-4">
+                    <h3>Past Appointments</h3>
+                    {% if past_appointments %}
+                        <div class="card-columns">
+                            {% for appointment in past_appointments %}
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-header">Appointment on {{ appointment.AppointmentDate }}</div>
+                                    <div class="card-body text-secondary">
+                                        <h5 class="card-title">Time: {{ appointment.TimeSlot }}</h5>
+                                        <p class="card-text">Doctor: Dr. {{ appointment.doctor.get_name }}</p>
+                                        <p class="card-text">Symptoms: {{ appointment.symptoms }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No past appointments.</p>
+                    {% endif %}
+                </div>
+                <div class="mt-4">
+                    <h3>Canceled Appointments</h3>
+                    {% if canceled_appointments %}
+                        <div class="card-columns">
+                            {% for appointment in canceled_appointments %}
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-header">Appointment on {{ appointment.AppointmentDate }}</div>
+                                    <div class="card-body text-secondary">
+                                        <h5 class="card-title">Time: {{ appointment.TimeSlot }}</h5>
+                                        <p class="card-text">Doctor: Dr. {{ appointment.doctor.get_name }}</p>
+                                        <p class="card-text">Symptoms: {{ appointment.symptoms }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No past appointments.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

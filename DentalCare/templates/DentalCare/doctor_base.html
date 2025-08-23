@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body>
+  
+  <div class="container-scroller">
+
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+      <div class="navbar-brand-wrapper d-flex justify-content-center col-2">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <a class="navbar-brand brand-logo" href="{% url 'doctor-dashboard' %}">OralFix Dental Clinic</a>
+        </div>
+      </div>
+
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end col-10">
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link align-items-center d-flex" href="">
+              <!-- <img src="{% static 'images/user.png' %}" alt="profile"/> -->
+              <span class="nav-profile-name">{{request.user.first_name}}</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+              <p class="mb-0">Last Online: {{request.user.last_login}} </p>
+
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-date dropdown">
+            <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+              <h6 class="date mb-0">Today : {{ current_date }}</h6>
+              <span><pre>  </pre></span>
+              <span><img src="/static/images/schedule.png" style="height: 25px;"></span>
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper col-12">
+      <nav class="sidebar sidebar-offcanvas col-2" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'doctor-dashboard' %}">
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements" onclick="toggleCollapse(event)">
+              <span class="menu-title">Patients</span>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/add-patient-doctor">New Patient</a></li>
+              </ul>
+              
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#appointment" aria-expanded="false" aria-controls="charts" onclick="toggleCollapse(event)">
+              <span class="menu-title">Appointments</span>
+            </a>
+            <div class="collapse" id="appointment">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/book-appointment-doctor/date">New Appointments</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/view-appointment-doctor">View Appointments</a></li>
+              </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements" onclick="toggleCollapse(event)">
+              <span class="menu-title">Patient Record</span>
+            </a>
+            <div class="collapse" id="form-elements">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"><a class="nav-link" href="">New Patient Record</a></li>
+                </ul>
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"><a class="nav-link" href="">View Patient Record</a></li>
+                </ul>
+            </div>
+        </li>
+          <hr class="dropdown-divider">
+          <li class="nav-item">
+            <a class="nav-link" href=""><span class="menu-title">View Profile</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="menu-title">Logout</span></a>
+          </li>
+      </nav>
+      
+            {% block content %}
+            
+            {% endblock %}
+            
+            
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+              <script>
+                function toggleCollapse(event) {
+                  event.preventDefault();
+                  const target = document.querySelector(event.target.getAttribute('href'));
+                  if (target) {
+                      target.classList.toggle('show');
+                      const arrow = event.target.querySelector('.nav-item');
+                      if (arrow) {
+                          arrow.classList.toggle('rotate');
+                      }
+                  }
+                }
+              </script>
+</body>
+
+</html>

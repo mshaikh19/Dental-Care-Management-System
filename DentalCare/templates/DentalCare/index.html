@@ -1,0 +1,260 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For Responsive Website -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    
+    <!-- Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900"> 
+
+    <title>OralFix Dental Clinic</title>
+
+</head>
+<body>
+  {% include 'DentalCare/index-header.html' %}
+       
+    <div class="cover">
+      <div class="container col-12">
+        <div class="row align-items-center col-12">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <span class="sub-text">We Prioritize Your</span>
+            <h1>Your <strong>New Smile</strong></h1>
+          </div>
+          <div class="col-7 image"> <img src="/static/images/main-bg-removebg-preview.png" width="800px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="content-feature d-flex p-4 rounded mb-4">
+              <div class="mr-3 row align-items-center justify-content-between col-12">
+                <span class="icon font-weight-light text-white h2 "><img src="/static/images/dentist-chair.png" style="height: 60px;"></span>
+                <div class="text">
+                  <h3>Book Appointments</h3>
+                </div>
+              </div>
+            </div>   
+          </div>
+          <div class="col-lg-4">
+            <div class="content-feature d-flex p-4 rounded mb-4">
+              <div class="mr-3 row align-items-center justify-content-between col-12">
+                <span class="icon font-weight-light text-white h2"><img src="/static/images/dental-care.png" style="height: 60px;"></span>
+                <div class="text">
+                  <h3>Dental Care</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="content-feature d-flex p-4 rounded mb-4">
+              <div class="mr-3  row align-items-center justify-content-between col-12">
+                <span class="icon font-weight-light text-white h2"><img src="/static/images/dental-insurance.png" style="height: 60px;"></span>
+                <div class="text">
+                  <h3>Preventative Care</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section content-block-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <img src="/static/images/Dentist-Illustration.jpg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-6">
+            <div class="row row-items">
+              <div class="col-md-6">
+                <a href="#" class="d-flex text-center feature active p-4 mb-4">
+                  <span class="align-self-center w-100">
+                    <span class="d-block mb-3">
+                      <span class="display-3"><img src="/static/images/tooth-whitening.png" style="height: 100px;"></span>
+                    </span>
+                    <h3 style="color: white;">Tooth Whitening</h3>
+                  </span>
+                </a>
+              </div>
+
+              <div class="col-md-6">
+                <a href="#" class="d-flex text-center feature p-4 mb-4">
+                  <span class="align-self-center w-100">
+                    <span class="d-block mb-3">
+                      <span class="display-3"><img src="/static/images/implant.png" style="height: 100px;"></span>
+                    </span>
+                    <h3 style="color: white;">Implant</h3>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="row row-items last">
+              <div class="col-md-6">
+                <a href="#" class="d-flex text-center feature p-4 mb-4">
+                  <span class="align-self-center w-100">
+                    <span class="d-block mb-3">
+                      <span class="display-3"><img src="/static/images/root-canal.png" style="height: 130px;"></span>
+                    </span>
+                    <h3 style="color: white;">Root Canal</h3>
+                  </span>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="d-flex text-center active feature p-4 mb-4">
+                  <span class="align-self-center w-100">
+                    <span class="d-block mb-3">
+                      <span class="display-3"><img src="/static/images/straightens-teeth.png" style="height: 130px;"></span>
+                    </span>
+                    <h3 style="color: white;">Teeth Aligners</h3>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section appointment-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2 image">
+            <img src="/static/images/5516871-removebg-preview.png">
+          </div>
+
+          <div class="col-lg-6 mb-5 pl-lg-5 order-2 order-lg-1">
+            <div class="pl-lg-5 ml-lg-5">
+              <h2 class="section-heading text-black">Online <strong>Appointment</strong> </h2>
+              <p class="lead text-black">At OralFix Dental Clinic, we strive to make your dental care experience as convenient as possible. Our user-friendly appointment form allows you to effortlessly book a visit with our expert dental team from the comfort of your home.</p>
+              <p class="text-black-opacity-5">Your oral health is our priority, and we look forward to providing you with exceptional care tailored to your needs.</p>
+              <a href="/patient-login" class="btn btn-primary">Login</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="section bg-light">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-6 text-center">
+            <h2 class="section-heading text-black">People <strong>Says</strong></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimony-block p-4 text-center">
+              <div class="mb-3">
+                <img src="/static/images/user.png" alt="Image" class="img-fluid">
+              </div>
+              <div>
+                <p>The combination of Dr. Mauli and Dr. Yusra's skills and personalities is unbeatable.</p>
+                <p> I can't thank them enough for their outstanding service and highly recommend their practice to everyone.</p>
+                 <p><strong class="font-weight-bold">User</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimony-block p-4 text-center active">
+              <div class="mb-3">
+                <img src="/static/images/user.png" alt="Image" class="img-fluid">
+              </div>
+              <div>
+                <p>Dr. Mauli and Dr. Yusra are an incredible team! From the moment I stepped into their clinic, I was greeted with warmth and professionalism.</p>
+                <p>I am grateful for their exceptional care and highly recommend them to anyone seeking top-quality dental services.</p>
+                <p><strong class="font-weight-bold">User</strong></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="testimony-block p-4 text-center">
+              <div class="mb-3">
+                <img src="/static/images/user.png" alt="Image" class="img-fluid">
+              </div>
+              <div>
+                <p>I had an outstanding experience with both Dr. Mauli and Dr. Yusra. Their collaborative approach to dental care is truly remarkable. </p>
+                <p>They work seamlessly together to provide the best possible care. My smile has never looked better, and I owe it all to their fantastic teamwork!</p>
+                <p><strong class="font-weight-bold">User</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigation</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Team</a></li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Follow Us</h3>
+                <div>
+                  <a href="#" class="pl-0 pr-3"><span><img src="/static/images/instagram.png" style="height: 40px;"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span><img src="/static/images/facebook.png" style="height: 40px;"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span><img src="/static/images/twitter.png" style="height: 40px;"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span><img src="/static/images/linkedin.png" style="height: 40px;"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 text-center">
+            <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+
+
+      
+  </div>
+    
+</body>
+</html>
+        <!-- <div class="navbar-nav">
+            <a href="/admin-login" class="nav-item nav-link">Admin</a>
+            <a href="/doctor-login" class="nav-item nav-link">Doctor</a>
+            <a href="/patient-login" class="nav-item nav-link">Patient</a>
+        </div> -->

@@ -1,0 +1,94 @@
+    {% extends 'DentalCare/admin_base.html' %}
+    {% load widget_tweaks %}
+    {% block content %}
+
+
+    <div class="main-panel col-12 mt-4">
+    <div class="content-wrapper col-10">
+        <div class="row">
+        <div class="col-12 grid-margin">
+            <form class="form-sample" id="doctor-form" enctype="multipart/form-data" method="post" action="{% url 'book-appointment-admin' appointment_date=appointment_date  %}"">
+            {% csrf_token %}
+            <div class="card" id="time-slot-card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">Select Time Slot</h3>
+                <div class="row">
+                    <div class="col-md-10">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Appointment Date</label>
+                        <div class="col-sm-6">
+                            <input type="date" readonly name="appointment_date" value="{{ appointment_date }}" class="form-control form-control-lg">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-10">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Time Slot</label>
+                        <div class="col-sm-6">
+                            <select name="appointment_time" id="appointment_time" class="form-control form-control-lg">
+                                {% for time_slot in available_time_slots %}
+                                    <option value="{{ time_slot }}">{{ time_slot }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <button type="button" class="btn-dark" style="padding: 6px 55px; border-radius: 10px;" onclick="showDetailsCard()">Next</button>
+                </div>
+                </div>
+            </div>
+            
+            <div class="card d-none" id="details-card">
+            <div class="card-body">
+                <h3 class="card-title">Personal Details</h3>
+            <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Patient Name</label>
+                    <div class="col-sm-6">
+                        <select name="patient" id="patient" class="form-control form-control-lg">
+                            {% for name in patient_name %}
+                                <option value="{{ name }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Symptoms</label>
+                    <div class="col-sm-6">
+                        {% render_field appointment_form.symptoms class="form-control form-control-lg" placeholder="Symptoms" %}
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                <button type="button" class="btn-dark mr-2" style="padding: 6px 55px; border-radius: 10px;" onclick="showTimeSlotCard()">Back</button>
+                <input type="submit" class="btn-dark" style="padding: 6px 55px; border-radius: 10px;" value="Book Appointment">
+                </div>
+            </div>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+    </div>
+
+    <script>
+    function showDetailsCard() {
+        document.getElementById('time-slot-card').classList.add('d-none');
+        document.getElementById('details-card').classList.remove('d-none');
+        }
+
+        function showTimeSlotCard() {
+        document.getElementById('details-card').classList.add('d-none');
+        document.getElementById('time-slot-card').classList.remove('d-none');
+    }
+    </script>
+    {% endblock content %}

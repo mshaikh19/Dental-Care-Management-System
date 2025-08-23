@@ -1,0 +1,131 @@
+{% extends 'DentalCare/admin_base.html' %}
+{% load static %}
+
+<br><br><br>
+{% block content %}
+  <style>
+    .main-panel{
+      width: 50vw !important;
+    }
+  </style>
+
+<div class="main-panel col-12 ml-4">
+  <div class="content-wrapper col-9">
+    <div class="row">
+      <div class="col-xl-6 grid-margin stretch-card flex-column">
+          <h5 class="mb-2 text-titlecase mb-4">Clinic statistics</h5>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <p class="mb-1 text-muted">Doctors</p>
+                  </div>
+                  <h3>{{ doctorcount }}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="mb-1 text-muted">Patients</p>
+                  </div>
+                  <h3>{{ patientcount }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row h-100">
+          <div class="col-md-6 stretch-card grid-margin grid-margin-md-0">
+            <div class="card">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <p class="mb-1 text-muted">Past Appointments</p>
+                </div>
+                <h3>{{ pastappointmentcount }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 stretch-card">
+            <div class="card">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <p class="mb-1 text-muted">Upcoming Appointments</p>
+                </div>
+                <h3>{{ upcomingappointmentcount }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 grid-margin stretch-card flex-column">
+        <h5 class="mb-2 text-titlecase mb-4">Income statistics</h5>
+        <div class="row h-100">
+          <div class="col-md-12 stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                  <div>
+                    <p class="mb-3">Monthly Income</p>
+                    <h3>67842</h3>
+                  </div>
+                  
+                </div>
+                <canvas id="income-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total Expenses</p>
+                <h1 class="mb-0">8742</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total Budget</p>
+                <h1 class="mb-0">47,840</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+              <div>
+                <p class="mb-2 text-md-center text-lg-left">Total Balance</p>
+                <h1 class="mb-0">$7,243</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body>
+  
+  <div class="container-scroller">
+
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+      <div class="navbar-brand-wrapper d-flex justify-content-center col-2">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <a class="navbar-brand brand-logo" href="{% url 'patient-dashboard' %}">OralFix Dental Clinic</a>
+        </div>
+      </div>
+
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end col-10">
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link align-items-center d-flex" href="">
+              <!-- <img src="{% static 'patient.profile_picture.url' %}" alt="profile"/> -->
+              <span class="nav-profile-name">{{request.user.first_name}}</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+              <p class="mb-0">Last Online: {{request.user.last_login}} </p>
+
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-date dropdown">
+            <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+              <h6 class="date mb-0">Today : {{ current_date }}</h6>
+              <span><pre>  </pre></span>
+              <span><img src="/static/images/schedule.png" style="height: 25px;"></span>
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper col-12">
+      <nav class="sidebar sidebar-offcanvas col-2" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'patient-dashboard' %}">
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#appointment" aria-expanded="false" aria-controls="charts" onclick="toggleCollapse(event)">
+              <span class="menu-title">Appointments</span>
+            </a>
+            <div class="collapse" id="appointment">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/book-appointment/date">New Appointments</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/patient-view-appointment">View Appointments</a></li>
+              </ul>
+            </div>
+        </li>
+        
+          <hr class="dropdown-divider">
+          <li class="nav-item">
+            <a class="nav-link" href=""><span class="menu-title">View Profile</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><span class="menu-title">Logout</span></a>
+          </li>
+      </nav>
+      
+            {% block content %}
+            
+            {% endblock %}
+            
+            
+    
+    
+              <script>
+                function toggleCollapse(event) {
+                  event.preventDefault();
+                  const target = document.querySelector(event.target.getAttribute('href'));
+                  if (target) {
+                      target.classList.toggle('show');
+                      const arrow = event.target.querySelector('.nav-item');
+                      if (arrow) {
+                          arrow.classList.toggle('rotate');
+                      }
+                  }
+                }
+              </script>
+</body>
+
+</html>

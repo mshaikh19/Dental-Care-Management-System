@@ -1,0 +1,96 @@
+<style>
+    nav ul li:hover .dropdown {
+        display: flex;
+        flex-direction: column;
+      }
+      .dropdown {
+          display: none;
+          position: absolute;
+          background-color: #333;
+          min-width: 100px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          background-color: rgb(162, 152, 173);
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: rgba(0,0,0);
+
+        }
+
+        .dropdown a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+</style>
+
+
+<div class="main-container">
+    <div class="navbar">
+      <div class="navbar-top col-12">
+        <div class="container py-2">
+          <div class="row justify-content-between align-items-center col-12">
+            <div class="col-3 text-left">
+              <a href="#" class="p-2 pl-0"><span><img src="/static/images/twitter.png" style="height: 20px;"></span></a>
+              <a href="#" class="p-2 pl-0"><span><img src="/static/images/facebook.png" style="height: 25px;"></span></a></a>
+              <a href="#" class="p-2 pl-0"><span><img src="/static/images/instagram.png" style="height: 25px;"></span></a></a>
+              <a href="#" class="p-2 pl-0"><span><img src="/static/images/linkedin.png" style="height: 25px;"></span></a></a>
+            </div>
+
+            <div class="col-9 text-right">
+                <div class="d-flex justify-content-end">
+                    <a href="#" class="d-flex align-items-center mr-4">
+                        <span class="icon-envelope mr-2"></span>
+                        <span class="d-none d-md-inline-block">youremail@domain.com</span>
+                    </a>
+                    <a href="#" class="d-flex align-items-center">
+                        <span class="icon-phone mr-2"></span>
+                        <span class="d-none d-md-inline-block">+1 291 2830 302</span>
+                    </a>
+                    <span class="mr-4"></span>
+                    <a href="#" class="d-flex align-items-center">
+                        <span class="icon-phone mr-2"></span>
+                        <span class="d-none d-md-inline-block">+1 291 2830 302</span>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-bottom">
+        <div class="container py-1 col-12">
+            <div class="row align-items-center col-12">
+              <div class="col-4 text-center text-md-left">
+                  <h2 class="website-logo"><a href="index.html">Oral Fix Dental Clinic</a></h2>
+              </div>
+                  
+              <div class="col-8">
+                <nav class="navbar-links text-right text-md-right" role="navigation">
+                  <div class="container h3"></span></a></div>
+      
+                  <ul class="links-menubar js-clone-nav d-none d-lg-block">
+                      <li class="active">
+                      <a href="/">Home</a>
+                      </li>
+                      <li><a href="/admin-login">Admin</a></li>
+                      <li>
+                        <a href="">Patients</a>
+                        <div class="dropdown">
+                          <a href="/patient-signup">Signup</a>
+                          <a href="/patient-login">Login</a>
+                        </div>
+                      </li>
+                      <li><a href="/doctor-login">Doctor</a></li>
+
+                      <li><a href="#feedback">Feedback</a></li>
+                  </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>

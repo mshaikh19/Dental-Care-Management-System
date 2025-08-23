@@ -1,0 +1,141 @@
+{% extends 'DentalCare/admin_base.html' %}
+{% block content %}
+
+{% load static %}
+
+<head>
+
+ 
+</head>
+<div class="main-panel col-12 ml-4">
+  <div class="content-wrapper col-10">
+    <div class="row col-12">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <ul class="navbar-nav navbar-nav-right d-flex align-items-center row" style="padding-top: 10px; ">
+              <h4 class="card-title">View Doctors</h4>
+              <li class="nav-item nav-search d-none d-md-block mb-3 col-4 " >
+                <div class="input-group" >
+                  <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search" style="border-radius: 10px 0px 0px 10px !important;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="search" style="border-radius: 0px 10px 10px 0px !important;">
+                      <img src="static/images/search.png" style="height: 25px;">
+                    </span>
+                  </div>
+              </div>
+              </li>
+            </ul>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Patient Name</th>
+                    <th>Symptoms</th>
+                    <th>Phone Number</th>
+                    <th>Appointment Time Slot</th>
+                    <th>Appointment Date</th>
+                    <th>Doctor</th>
+                    <th>Appointment Status</th>
+                    
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for data in appointments %}
+                  
+                  
+                  <tr>
+                    <td>{{ data.patient.get_name }}</td>
+                    <td>{{data.symptoms}}</td>
+                  <td>{{ data.patient.mobile}}</td>
+                  <td>{{data.TimeSlot }}</td>
+                  <td>{{data.AppointmentDate }}</td>
+                  <td>Dr. {{ data.doctor.get_name }}</td>
+                    {%if data.status%}
+                    <td> <span class="label label-primary">Done</span></td>
+                    {% else %}
+                    <td> <span class="label label-success">Pending</span></td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if messages %}
+{% for message in messages %}
+<script>
+  window.onload = function() {
+    alert("{{ message }}");
+    };
+    </script>
+{% endfor %}
+{% endif %}
+
+<!-- 
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Appointments</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Picture</th>
+          <th>Description</th>
+          <th>Contact</th>
+          <th>Address</th>
+          <th>Appointment Date</th>
+        </tr>
+      </thead>
+      {% for data in appointments %}
+      <tr>
+        <td>{{ data.patient }}</td>
+        <td>{{data.symptoms}}</td>
+        <td>{{ data.patient.mobile}}</td>
+        <td>{{data.TimeSlot }}</td>
+        <td>{{data.AppointmentDate }}</td>
+        <td>Dr. {{ data.doctor.user.first_name }}</td>
+          {%if data.status%}
+          <td> <span class="label label-primary">Done</span></td>
+          {% else %}
+          <td> <span class="label label-success">Pending</span></td>
+          {% endif %}
+
+
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div> -->
+
+
+{% endblock content %}

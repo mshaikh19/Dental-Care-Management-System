@@ -1,0 +1,88 @@
+{% extends 'DentalCare/admin_base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+  .profile-card {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  .profile-header img {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #fff; /* Ensure the profile picture has a white border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  .profile-header h4 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  .profile-header p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #666;
+  }
+  .profile-details {
+    margin-top: 20px;
+  }
+  .profile-details h5 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .profile-details p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #666;
+  }
+</style>
+
+<div class="main-panel col-12 ml-4">
+  <div class="content-wrapper col-10">
+    <div class="row">
+      <div class="col-11 grid-margin stretch-card">
+        <div class="card vh-25 profile-card">
+          <div class="card-body">
+            <div class="profile-header">
+              <img src="{{ MEDIA_URL }}{{ doctor.profile_picture.url }}" alt="Profile Picture">
+              <div>
+                <h4>{{ doctor.get_name }}</h4>
+                <p><strong>Department:</strong> {{ doctor.department }}</p>
+                <p><strong>Contact:</strong> {{ doctor.mobile }}</p>
+              </div>
+            </div>
+            <div class="profile-details">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Personal Information</h5>
+                  <p><strong>Gender:</strong> {{ doctor.gender }}</p>
+                  <p><strong>Date of Birth:</strong> {{ doctor.dob }}</p>
+                </div>
+                <div class="col-md-6">
+                  <h5>Address</h5>
+                  <p> {{ doctor.address_line_1 }} , {{ doctor.city }} , {{ doctor.state }} , {{ doctor.country }} - {{ doctor.postcode }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

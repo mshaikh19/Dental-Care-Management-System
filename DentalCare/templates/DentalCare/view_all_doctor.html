@@ -1,0 +1,113 @@
+{% extends 'DentalCare/admin_base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+
+ 
+</head>
+<div class="main-panel col-12 ml-4">
+  <div class="content-wrapper col-10">
+    <div class="row col-12">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <ul class="navbar-nav navbar-nav-right d-flex align-items-center row" style="padding-top: 10px; ">
+              <h4 class="card-title">View Doctors</h4>
+              <li class="nav-item nav-search d-none d-md-block mb-3 col-4 " >
+                <div class="input-group" >
+                  <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search" style="border-radius: 10px 0px 0px 10px !important;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="search" style="border-radius: 0px 10px 10px 0px !important;">
+                      <img src="static/images/search.png" style="height: 25px;">
+                    </span>
+                  </div>
+              </div>
+              </li>
+            </ul>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    
+                    <th>Registration ID</th>
+                    <th>Phone Number</th>
+                    <th>View Profile</th>
+                    <th>Update Profile</th>
+                    <th>Delete Profile</th>
+                    
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for doctor in doctors %}
+                  
+                  
+                  <tr>
+                    <td>{{ doctor.get_name }}</td>
+                    
+                    <td>{{ doctor.department }}</td>
+                    
+                    <td>{{ doctor.register_id }}</td>
+                    <td>{{ doctor.mobile }}</td>
+                    <!-- <td>{{ doctor.address_line_1 }},{{ doctor.city }},{{ doctor.state }},{{ doctor.country }} - {{ doctor.postcode }} </td> -->
+                    <td><a href="{% url 'doctor_profile' doctor.id %}"><img src="static\images\monitoring.png" style="height: 30px;"></a></td>
+                    <td><a href="{% url 'update-doctor' doctor.id %}"><img src="static\images\software.png" style="height: 30px;"></a></td>
+                    <td><a href="{% url 'delete-doctor' doctor.id %}"><img src="static\images\block.png" style="height: 40px;"></a></td>
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% if messages %}
+{% for message in messages %}
+<script>
+  window.onload = function() {
+    alert("{{ message }}");
+    };
+    </script>
+{% endfor %}
+{% endif %}
+<!-- <div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Doctors</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Contact</th>
+          <th>Address</th>
+          <th>Department</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for d in doctors %}
+      <tr>
+
+        <td>{{d.get_name}}</td>
+        <td>{{d.mobile}}</td>
+        <td>{{d.address}}</td>
+        <td>{{d.department}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-doctor' d.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-doctor' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div> -->
+
+
+{% endblock content %}

@@ -1,0 +1,143 @@
+{% extends 'DentalCare/doctor_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<div class="main-panel col-12 mt-4">
+  <div class="content-wrapper col-10">
+    <div class="row">
+      <div class="col-12 grid-margin">
+        <form class="form-sample" id="doctor-form" enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+        <div class="card" id="personal-contact-card">
+          <div class="card-body">
+            <h3 class="card-title mb-4">Add Patient Profile</h3>
+              <div class="card-description"><h5>Personal Info</h5></div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">First Name</label>
+                    <div class="col-sm-9">
+                      {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Last Name</label>
+                    <div class="col-sm-9">
+                      {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Gender</label>
+                    <div class="col-sm-9">
+                      {% render_field patientForm.gender class="form-control" placeholder="Gender" %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                      {% render_field patientForm.dob class="form-control" placeholder="Date of Birth" %}
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="card-description mt-4"><h5>Contact</h5></div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Contact</label>
+                    <div class="col-sm-9 d-flex align-items-center">
+                      {% render_field patientForm.mobile class="form-control mr-5 col-12" placeholder="Contact Number" %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-center mt-3">
+                <button type="button" class="btn-dark" style="padding: 6px 55px; border-radius: 10px;" onclick="showAddressCard()">Next</button>
+              </div>
+            </div>
+          </div>
+        
+        <div class="card d-none" id="address-card">
+          <div class="card-body">
+            <h3 class="card-title">Add Patient Profile</h3>
+          <div class="card-description"><h5>Address</h5></div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Address Line 1</label>
+                  <div class="col-sm-9">
+                    {% render_field patientForm.address_line_1 class="form-control" placeholder="Address" %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">State</label>
+                <div class="col-sm-9">
+                    {% render_field patientForm.state class="form-control" placeholder="State" %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Postcode</label>
+                  <div class="col-sm-9">
+                    {% render_field patientForm.postcode class="form-control" placeholder="Postcode" %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Country</label>
+                <div class="col-sm-9">
+                  {% render_field patientForm.country class="form-control" placeholder="Country" %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">City</label>
+                  <div class="col-sm-9">
+                    {% render_field patientForm.city class="form-control" placeholder="City" %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-3">
+              <button type="button" class="btn-dark mr-2" style="padding: 6px 55px; border-radius: 10px;" onclick="showPersonalContactCard()">Back</button>
+              <input type="submit" class="btn-dark" style="padding: 6px 55px; border-radius: 10px;" value="Add Patient Profile">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showAddressCard() {
+    document.getElementById('personal-contact-card').classList.add('d-none');
+    document.getElementById('address-card').classList.remove('d-none');
+    }
+
+    function showPersonalContactCard() {
+      document.getElementById('address-card').classList.add('d-none');
+      document.getElementById('personal-contact-card').classList.remove('d-none');
+  }
+</script>
+{% endblock content %}
