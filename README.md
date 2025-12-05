@@ -13,9 +13,6 @@ Institution: Gujarat University
 Program: M.Sc. IT (Software Development - Web & Mobile Application)
 Semester: 4 (Batch: 2022–2025)
 
-yaml
-Copy code
-
 ---
 
 ## Features
