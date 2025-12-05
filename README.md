@@ -8,9 +8,12 @@ A comprehensive web-based dental clinic management system built with **Django** 
 
 The Dental Care Management System is designed to overcome manual system limitations by introducing a fully automated, web-based solution. It provides structured management of patient records, doctor profiles, and appointments with role-based access for **Admins**, **Doctors**, and **Patients**.
 
-Developed By: Shaikh Maryam Mohammed Farooq
+Developed By: Shaikh Maryam
+
 Institution: Gujarat University
+
 Program: M.Sc. IT (Software Development - Web & Mobile Application)
+
 Semester: 4 (Batch: 2022–2025)
 
 ---
@@ -66,11 +69,9 @@ Semester: 4 (Batch: 2022–2025)
 ## Configuration & Setup
 
 ### Prerequisites
-Python 3.8 or higher
-
-pip package manager
-
-Virtual environment (recommended)
+  * Python 3.8 or higher
+  * pip package manager
+  * Virtual environment (recommended)
 
 ### Installation
 
@@ -151,7 +152,7 @@ This project is open source and available under the MIT License.
 ```
 MIT License
 
-Copyright (c) 2024 Shaikh Maryam Mohammed Farooq
+Copyright (c) 2024 Shaikh Maryam
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -171,10 +172,12 @@ This project was created as part of the M.Sc. IT program at Gujarat University (
 
 Special appreciation to: 
   Department of Animation, ITIMS & Mobile Applications
+  
   Django Community
 
 ## Contact
   Developer: Shaikh Maryam Mohammed Farooq
+  
   Gujarat University | M.Sc. IT | Semester 4
 
 
