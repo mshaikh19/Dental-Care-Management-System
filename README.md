@@ -144,17 +144,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/profile_pics/')
 ```
 
-## Screenshots (Optional Section Placeholder)
-
-Login Page	
-  Secure authentication for all users
-Patient Dashboard	
-  Appointment history and profile management
-Admin Panel	
-  Complete management control
-Doctor Panel	
-  Patient and appointment tracking
-
 ## License
 
 This project is open source and available under the MIT License.
