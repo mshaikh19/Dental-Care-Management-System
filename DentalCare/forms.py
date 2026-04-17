@@ -27,8 +27,10 @@ class PatientUserForm(forms.ModelForm):
         
 
 class PatientForm(forms.ModelForm):
-    mobile = forms.CharField(widget=PhoneNumberPrefixWidget())
-
+    # mobile = forms.CharField(widget=PhoneNumberPrefixWidget())
+    mobile = PhoneNumberField(
+        widget=PhoneNumberPrefixWidget()
+    )
     class Meta:
         model=Patient
         # fields=['gender','dob','mobile','address_line_1','postcode','city','state','country']
