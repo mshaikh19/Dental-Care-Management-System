@@ -27,7 +27,7 @@ class PatientUserForm(forms.ModelForm):
         
 
 class PatientForm(forms.ModelForm):
-    mobile = forms.CharField(widget=PhoneNumberPrefixWidget(initial='IN'))
+    mobile = forms.CharField(widget=PhoneNumberPrefixWidget())
 
     class Meta:
         model=Patient
