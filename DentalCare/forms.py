@@ -32,7 +32,7 @@ class PatientForm(forms.ModelForm):
         model=Patient
         fields=['gender','dob','mobile','address_line_1','postcode','city','state','country']
         widgets = {
-            'mobile' : PhoneNumberPrefixWidget()
+            'mobile' : PhoneNumberPrefixWidget(initial='IN')
         }
 
 class PatientProfileForm(forms.ModelForm):
