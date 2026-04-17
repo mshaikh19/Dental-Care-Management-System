@@ -1,20 +1,76 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
+# # Python
+# __pycache__/
+# *.pyc
+# *.pyo
 
-# Virtual environments
+# # Virtual environments
+# venv/
+# env/
+
+# # Django
+# db.sqlite3
+# /media
+# /staticfiles
+
+# # Secrets
+# .env
+# DentalCareManagementSystem/settings.py
+
+# # Node
+# node_modules/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual Environments
+# =========================
 venv/
 env/
+ENV/
+.venv/
 
+# =========================
 # Django
+# =========================
+*.log
 db.sqlite3
-/media
-/staticfiles
+db.sqlite3-journal
 
-# Secrets
+# Static & Media (generated files)
+staticfiles/
+media/
+
+# =========================
+# Environment Variables / Secrets
+# =========================
 .env
-DentalCareManagementSystem/settings.py
+.env.*
 
-# Node
+# =========================
+# VS Code / IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Node (if used)
+# =========================
 node_modules/
+
+# =========================
+# Build / Misc
+# =========================
+*.sqlite3
+*.bak
+*.swp
