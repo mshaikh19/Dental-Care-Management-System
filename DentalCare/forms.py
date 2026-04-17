@@ -29,7 +29,12 @@ class PatientUserForm(forms.ModelForm):
 class PatientForm(forms.ModelForm):
     # mobile = forms.CharField(widget=PhoneNumberPrefixWidget())
     mobile = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget()
+        widget=PhoneNumberPrefixWidget(
+            widgets=[
+                forms.Select(),       # country code dropdown
+                forms.TextInput()     # phone number input
+            ]
+        )
     )
     class Meta:
         model=Patient
